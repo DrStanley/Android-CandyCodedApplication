@@ -11,8 +11,6 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 public class InfoActivity extends AppCompatActivity {
-    TextView map, call;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +32,13 @@ public class InfoActivity extends AppCompatActivity {
         if (mapIntent.resolveActivity(getPackageManager()) != null) {
             startActivity(mapIntent);
         }
+    }
+
+    public void createPhoneIntent(View view) {
+
+        Intent phoneIntent = new Intent(Intent.ACTION_DIAL);
+        phoneIntent.setData(Uri.parse("tel:0123456789"));
+        startActivity(phoneIntent);
     }
 
     // ***
